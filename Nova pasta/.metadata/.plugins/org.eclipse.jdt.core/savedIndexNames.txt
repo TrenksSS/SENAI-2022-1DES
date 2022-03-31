@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\suporte\Desktop\SENAI2022\Nova pasta\.metadata\.plugins\org.eclipse.jdt.core
+2071101411.index
+760091825.index
+1865797976.index

@@ -1,0 +1,23 @@
+package ex;
+
+import java.util.Scanner;
+
+public class pesquisa1 {
+	
+	static Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+
+		System.out.print("Digite Nome, ID, ou numero do usuario:");
+		int qtdCont = scan.nextInt();
+		Contato[] contatos = new Contato[qtdCont];
+		
+		System.out.println("id\tNome\tIdade\tTelefone");
+
+		System.out.println("id\tNome\tIdade\tTelefone");
+		for(int i = 0; i < qtdCont; i++) {
+			System.out.println(contatos[i].contatoTab());
+		}
+	}
+
+}

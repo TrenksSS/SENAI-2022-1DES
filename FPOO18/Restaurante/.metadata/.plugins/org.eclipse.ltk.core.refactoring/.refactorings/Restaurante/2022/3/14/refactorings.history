@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;modelo.Menu&apos; to &apos;Prato&apos;&#x0D;&#x0A;- Original project: &apos;Restaurante&apos;&#x0D;&#x0A;- Original element: &apos;modelo.Menu&apos;&#x0D;&#x0A;- Renamed element: &apos;modelo.Prato&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Menu&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;modelo{Menu.java[Menu" matchStrategy="1" name="Prato" qualified="false" references="true" similarDeclarations="false" stamp="1648728365807" textual="false" version="1.0"/>
+</session>

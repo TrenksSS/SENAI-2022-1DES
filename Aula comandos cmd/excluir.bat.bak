@@ -1,0 +1,25 @@
+del so\htmllocal\assets\img1.png
+del so\htmllocal\assets\img2.png
+del so\htmllocal\assets\img3.png
+del so\htmllocal\assets\img4.png
+del so\htmllocal\pags\page1.html
+del so\htmllocal\pags\page2.html
+del so\htmllocal\pags\page3.html
+del so\htmllocal\style\style1.css
+del so\htmllocal\style\style2.css
+del so\htmllocal\style\style3.css
+del so\htmllocal\script\script1.js
+del so\htmllocal\script\script2.js
+del so\htmllocal\script\script3.js
+
+rd so\htmllocal\assets
+
+rd so\htmllocal\pags
+
+rd so\htmllocal\style
+
+rd so\htmllocal\script
+
+rd so\htmllocal
+
+rd so

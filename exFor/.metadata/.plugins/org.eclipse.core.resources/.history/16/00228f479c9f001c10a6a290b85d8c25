@@ -1,0 +1,122 @@
+package exFor;
+
+
+
+
+	import java.util.Random;
+	import java.util.Scanner;
+
+	public class exf {
+		public static Scanner  scan;
+		public static void main(String[] args) {
+		scan = new Scanner(System.in);
+		Random  rand = new Random();
+		 int menu = 0;
+		 
+		  while (menu!=4) {
+			  System.out.print("1- Números pares\n2- Números Impares\n3- Maior Menor\n4-Fatorial\n5-xerox\n6-soma");
+			  menu = scan.nextInt();
+			  switch(menu) {
+			  case 1:
+				  par();
+				  	break;
+			  case 2:
+				 impar();
+				  break;
+				  
+			  case 3:
+				MaiorMenor();
+				  break;
+			  case 4: 
+				  fatorial();
+				   break;
+			  case 5:
+				  break;
+				  case 6:
+					  break;
+				default :
+					System.out.println("Opção Inválida");
+					break;
+			  }
+		  }
+		}
+		
+		public static void par() {
+		int [] v = new int [2];
+		System.out.println("");
+		System.out.println("Digite dois números: ");
+		 v[0]= scan.nextInt();
+		 v[1]= scan.nextInt();
+		System.out.println("");
+		 int y = v[0];
+		 if (y%2 !=0) {
+			 y++;
+		
+		 for(int i = y; i <= v[1]; i+=2) {
+			 System.out.println(i);
+		 
+		}  
+		 }else {
+			 for(int i = y; i <= v[1]; i+=2) {
+				 System.out.println(i);
+			 }
+		 }
+		}
+	public static void impar() {
+		
+		int []v = new int[2];
+		System.out.println("----------------------");
+		System.out.println("Digite dois números: ");
+		v[0]= scan.nextInt();
+		v[1]= scan.nextInt();
+		
+		int y = v[0];
+			if(y%2 ==0) {
+				y++;
+				
+				 for(int i = y; i <= v[1]; i+=2) {
+					 System.out.println(i);
+			}
+				
+			}else {
+				 for(int i = y; i <= v[1]; i+=2) {
+					 System.out.println(i);
+			}
+			}
+	}
+	public static void MaiorMenor() {
+		Random  rand = new Random();
+		int []v = new int [10];
+		
+		int Maior=0;
+		int Menor=10;
+		for(int i = 0; i<v.length;i++) {
+			v[i] = rand.nextInt(10);
+			System.out.print(v[i] + "\t");
+			
+			if (v[i]>Maior) {
+				Maior=v[i];
+			}
+			
+			if (v[i]<Menor) {
+				Menor=v[i];
+			}
+		}
+		System.out.println();
+		System.out.println("Maior: " + Maior);
+		System.out.println("Menor: " + Menor);
+	}
+	public static void fatorial() {
+		
+		System.out.println("Digite um valor: ");
+		int v = scan.nextInt();
+		int f=1;
+		for( int i = v; i > 0; i-- ) {
+			 f = f * i;
+			 System.out.println(i+ " ");
+		} 
+		System.out.printf("O fatorial é: %d", f);
+			 
+		
+	}
+	}

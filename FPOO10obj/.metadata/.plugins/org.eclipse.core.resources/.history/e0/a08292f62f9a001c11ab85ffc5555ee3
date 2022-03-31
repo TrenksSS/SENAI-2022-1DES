@@ -1,0 +1,9 @@
+package ex;
+
+public class Agenda2 {
+
+	public static void main(String[] args) {
+			Contato c1 = new Contato();
+	}
+
+}

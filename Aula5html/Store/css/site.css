@@ -1,0 +1,91 @@
+*{
+    margin: 1;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Amatic SC';
+}
+body{
+    cursor: url() ;
+
+}
+.center{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.header{
+    background-color: rgb(61, 255, 255);
+    padding:20px 0;
+    border-bottom: 2px solid rgb(61, 255, 255);
+}
+.logo{
+    color: aqua;
+    margin:0 50px;
+}
+.logo h2{
+    font-weight: normal;
+}
+.menu a{
+    color: rgb(4, 99, 99);
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin:0 10px;
+    
+}
+.menu{
+    width: 100%;
+    text-align: right;
+}
+.menu a:hover{
+    color:rgb(239, 152, 247);
+}
+.menu .btn-menu{
+    background-color:black;
+    display: inline-block;
+    padding:4px 10px;
+    color: white;
+    border-radius: 8px;
+
+}
+.menu .btn-menu:hover{
+    transition:3s;
+    background-color:rgb(255, 167, 233);
+    display: inline-block;
+    padding:3px 8px;
+    color: white;
+    border-radius: 8px;
+}
+.diferenciais img:hover{
+    transition:2s;
+    height: 220px;
+    width: 165px;
+    box-shadow: 0px 20px 40px rgba(248, 174, 232, 0.753);
+}
+.main_cta{
+    width:100%;
+    text-align: center;
+    margin:20px 0;
+
+
+}
+.main_cta h2{
+    color: rgb(255, 106, 230);
+    font-size: 60px;
+}
+.main_cta p{
+    color: rgb(3, 233, 221);
+    cursor: pointer;
+}
+.diferenciais{
+    display: flex;
+    margin:0 10px;
+}
+.diferencial_single{
+    background-color: white;
+    width: 20%;
+    margin-right: 15%;
+}

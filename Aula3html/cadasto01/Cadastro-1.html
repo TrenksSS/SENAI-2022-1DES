@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA_Compatible" content="IE=edge">
+		<meta name="vieport" content="width=device-width, initial-scalet=1.0">
+		<title>Cadastro</title>
+		<style>
+			body{
+				font-family: Arial, Helvetica, sans-serif;
+				background-image: linear-gradient(to right, rgb(245, 48, 228), rgb(247, 133, 231));
+			}
+			.box{
+				color: rgb(89, 248, 248);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				background-color: rgba(0,0,0,0.8);
+				padding: 10px;
+				border-radius: 10px;
+				width: 20%;
+
+			}
+			fieldset{
+				border: 3px solid rgb(112, 253, 253); 
+			}
+			legend{
+				border: 2px solid rgb(102, 255, 242)
+				padding: 20px;
+			background-color: rgb(245, 48, 228);
+            text-align: center;
+            border-radius: 20px;
+			}
+			.bo{
+				color: rgb(89, 248, 248);
+				position: absolute;
+				left: 200px; 
+				top: 120; 
+				transform: translate(-50%,-50%);
+				background-color: rgba(0,0,0,0.8);
+				padding: 10px;
+				border-radius: 15px;
+				width: 15%;
+
+			}
+			#submit{
+            background-image: linear-gradient(to right,rgb(122, 234, 253), rgb(236, 40, 243));
+            width: 100%;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+			}
+			#bot{
+				background-image: linear-gradient(to right,rgb(122, 234, 253), rgb(236, 40, 243));
+            width: 100%;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+			}
+			
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+		
+
+			<fieldset>
+				<legend><b/>Cadasto de usuario<b/></legend><br/>
+				<div class="inputbox">
+				Nome<br/>
+				<input type="text" value="name" id="nome"><br/>
+				</div>
+				<div class="inputbox">
+				E-mail<br/>
+				<input type="email" value="E-mail" id="email"><br/>
+				</div>
+				<div class="inputbox">
+				Telefone<br/>
+				<input type="text" value="Telefone" id="fone"><br/>
+				</div><br/>
+				<div class="inputbox">
+					Senha<br/>
+					<input type="password" placeholder="Senha" id="password" required><br/>
+					Comfirmar senha:<br/>
+					<input type="password" placeholder="Confirme Senha" id="confirm_password" required>
+					</div>
+				
+				<p>Sexo</p>
+				<input type="radio" name="genero" value="m" id="sexo"> Masculino
+				<input type="radio" name="genero" value="f" id="sexoo"> Feminino
+				<div class="inputbox">
+				Data de Nascimento: <input type="date" id="data"/><br/><br/><br/>
+				<button type="submit" class="pure-button pure-button-primary" id="submit">Cadastrar</button>
+			
+			</div>
+			
+
+			</div>
+		</div>	
+		<div class="bo">
+			<fieldset>
+				<legend><b/>Login<b/></legend>
+				Nome de usuario<br/>
+				<input type="text" value="name" id="nome"><br/>
+				Senha<br/>
+				<input type="password" value=""/><br/><br/>
+				<div><input type="submit" name="submit2" id="bot" value="Entrar" ></div>
+
+			</fieldset>
+
+		</div>
+	</fieldset>
+	</body>
+</html>

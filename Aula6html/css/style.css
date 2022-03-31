@@ -1,0 +1,67 @@
+.des{
+    display:flex;
+    width: 1900px;
+    height:850px;
+    text-align: center;
+    padding: 0px 0px;
+    margin: -1px -1px;
+    border-radius:0;
+}
+.barra{
+    margin: -4px -1px;
+    background-color: rgb(0, 0, 0);
+    width: 1900px;
+    height:40px;
+    text-align:;
+    padding: 0px 0px;
+}
+.caixa{
+    display:flex
+}
+.cx{
+    display:flex;
+    width: 700x;
+    height:600px;
+    margin: 242px -1893px;
+
+}
+img{
+    max-width: 100%;
+}
+.img1{
+    width: 1900px; 
+    height: 40px;
+}
+.img2{
+    left: 1px;
+    right:1px
+
+}
+#imm{
+    display:flex;
+    padding: 0px 0px;
+    margin: 4px 0px;
+    border: 1px 1px;
+    float: right;
+}
+#immm{
+    display:flex;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    border: 1px 1px;
+    float: right;
+}
+/* p{
+    color: rgb(255, 255, 255);
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+} */
+.texts{
+    display:flex
+    top: 145px;
+    right: 20px;
+    font-size: 40px;
+}

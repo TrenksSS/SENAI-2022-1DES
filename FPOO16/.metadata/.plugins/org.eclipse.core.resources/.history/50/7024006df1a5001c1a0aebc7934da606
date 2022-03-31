@@ -1,0 +1,60 @@
+package visao;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+import modelo.Aluno;
+
+public class Principal {
+
+	static SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+	static int valor = 0;
+	static Scanner input = new Scanner(System.in);
+	static int id = 0;
+	static Aluno[] alunos = new Aluno[10];
+	
+	public static Scanner scan;
+
+	public static void main(String[] args) throws IOException, ParseException {
+		scan = new Scanner(System.in);
+		int menu = 0;
+		while (menu != 7) {
+			System.out.print("1.Cadastrar alunos\n2.Listar Alunos\n3.\n7.Sair");
+			menu = scan.nextInt();
+			switch (menu) {
+			case 1:
+				cadastrarAluno();
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+			case 6:
+
+				break;
+			case 7:
+
+				break;
+			default:
+				System.out.println("Opção invalida");
+				break;
+			}
+		}
+	}
+
+	private static void cadastrarAluno() {
+		
+	}
+
+
+}

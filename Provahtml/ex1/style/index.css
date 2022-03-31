@@ -1,0 +1,41 @@
+
+body{
+    background-image: linear-gradient(to right, rgb(255, 190, 250), rgb(248, 170, 238));
+}
+table{
+    width: 400px;
+    border-collapse: collapse;
+    align-items: center;
+    position: absolute;
+    top: 57%;
+    left: 30%;
+}
+td{
+    border: 2px solid rgb(255, 198, 255);
+}
+im{
+    width: 100px;
+}
+h1{
+    text-align: center;
+}
+.im1{
+    position: absolute;
+    top: 10%;
+    left: 37%;
+
+}
+#submit{
+    background-image: linear-gradient(to right,rgb(253, 122, 231), rgb(236, 40, 243));
+    width: 41%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: absolute;
+    top: 120%;
+    left: 30%;
+
+}

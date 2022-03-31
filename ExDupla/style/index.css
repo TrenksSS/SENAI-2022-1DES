@@ -1,0 +1,135 @@
+body{
+    background-color: Gainsboro;
+}
+header{
+    /* display:flex;
+    padding: 50px; */
+    padding: 60px;
+    display: flex;
+    text-align: center;
+    padding-left: 10px;
+    justify-content: space-around;
+}
+.sep{
+    width: 100%;
+    border: 1px solid #000;
+}
+.v1{
+    margin-left: -12%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.v2{
+    color: red;
+    margin-left: -22%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.v3{
+    margin-left: -22%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.v4{
+    color: green;
+    margin-left: -22%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.v5{
+    margin-left: -22%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.v6{
+    color:blue;
+    margin-left: -22%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.lupa{
+    width:30px;
+    height:30px;
+    border-radius: 10px;
+    align-items: left;
+    display: flex;
+}
+.lupa img{
+    width:70%
+}
+.lupa input{
+    background-color: silver;
+    border-radius: 10px;
+}
+.news{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+.new1{
+    margin: 0;
+
+}
+.mini{
+    display: flex;
+    
+}
+@media screen and (max-width: 800px)  {
+   
+
+    .news{
+        width:180%;
+        display: flex;
+        font-size: 15px;
+        font-weight: bold;
+        justify-content: flex-start;
+        margin-left: 10%;
+        margin-top: 3%;
+    }
+    .v1{
+        margin-left: -12%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .v2{
+        color: red;
+        margin-left: -10%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .v3{
+        margin-left: -10%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .v4{
+        color: green;
+        margin-left: -10%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .v5{
+        margin-left: -10%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .v6{
+        color:blue;
+        margin-left: -10%;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .mini {
+        display: flex;
+        flex-direction: column;
+
+    }
+    header {
+        width: 100%;
+    }
+}

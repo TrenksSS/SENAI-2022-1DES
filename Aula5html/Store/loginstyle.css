@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+body{
+    margin: 0;
+    font-family:'Amatic SC';
+    background: -webkit-gradient(linear, left top, left bottom, from(#affff4), to(#00e6c7));
+    background: -moz-linear-gradient(top, #a0ffff, #035c5c);
+    /* cursor: url(nat989.cur), default; */
+    
+}
+.main-login{
+    width: 100vw;
+    height: 100vh;
+   /* background: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.left-login > h1{
+    color: #005f5a;
+}
+.left-login > h1:hover{
+    transition:.3s;
+    color: #00302d;
+
+}
+
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-login{
+    width: 60%;
+
+}
+.right-login > h1{
+    color: #005f5a;
+}
+.card-login{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    padding: 30px 35px;
+    background: rgba(0, 0, 0, 0.295);
+    border-radius: 10px ;
+    color: #00aca3;
+    box-shadow: 0px 10px 40px black;
+}
+.card-login > h1{
+    color:#016659;
+    font-weight: 800;
+    margin: 0;
+}
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin: 10px 0;
+
+}
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: rgba(143, 66, 150, 0.459);
+    color: #fff;
+    font-size:12pt;
+    box-shadow:0px 10px 40px rgb(0, 0, 0);
+    outline: none;
+    box-sizing: border-box;
+}
+.textfield > label{
+    color: #fff;
+    margin-bottom: 10px;
+
+}
+.textfield > input::placeholder{
+    color: #fff;
+}
+.btn-login{
+    width:100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgb(1, 133, 138);
+    background:rgb(15, 255, 243);
+    cursor:pointer ;
+    /* cursor: url(hol38.cur), default; */
+}
+
+.btn-login:hover{
+    transition:.3s;
+    color: rgb(139, 255, 255);
+    background:rgb(0, 143, 148);
+    box-shadow: 0px 20px 40px rgba(101, 250, 255, 0.753);
+
+}
+
+.img-login{
+    width: 40vw;
+
+}
+.a{
+    width:100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgb(1, 133, 138);
+    background:rgb(15, 255, 243);
+    cursor:pointer ;
+    cursor: url(hol38.cur), default;
+}

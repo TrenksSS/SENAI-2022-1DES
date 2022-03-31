@@ -1,0 +1,13 @@
+package modelo;
+
+import java.util.Date;
+
+public class Aluno {
+	public int ra;
+	public String nome;
+	public Date nasc;
+
+	public String formatAluno() {
+		return ra + " " + nome + " " + CalcIdade();
+	}
+}

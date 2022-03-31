@@ -1,0 +1,92 @@
+package prova;
+
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
+
+public class provadois {
+
+	public static Scanner scan;
+
+	public static void main(String[] args) throws IOException{
+		scan = new Scanner(System.in);
+		int menu = 0;
+		while(menu != 4) {
+			System.out.print("1.Hora Extra\n2.Numeros Reais\n3.Nomes\n4.alguma\n5.Sair");
+			menu = scan.nextInt();
+			switch(menu) {
+			case 1: 
+				Horaextra();
+				break;
+			case 2:
+				Pontosescolas();
+				break;
+			case 3:
+				GeraNomes();
+				break;
+			case 4:
+				System.out.print("Valews, falows.");
+				break;
+			default:
+				System.out.print("Opção inválida.");
+				break;
+			}
+		}
+	}
+
+	public static void Horaextra() {
+		scan = new Scanner(System.in);
+		Random rand = new Random();
+		System.out.print("Quantas horas o funcionario trabalhou?");
+		int tra = scan.nextInt();
+		System.out.print("Quantas horas extras o funcionario fez?");
+		int hor = scan.nextInt();
+		double cal, result, total;
+		cal = (hor * 5.625) ;
+		result = (cal * 0.75) + cal;
+		total = tra + hor;
+		System.out.println("O funcionario trabalhou " + tra + " horas"); 
+			System.out.printf("O valor a ser pago por horas extras é R$%.2f\n" , result);
+		}
+
+	public static void Pontosescolas() {
+		scan = new Scanner(System.in);
+		int t=5;		
+		System.out.println("Nome das escolas:");
+		System.out.println("Notas por categoria(0 a 10)");
+		String[] nome = new String[t];
+		int n1, n2, n3;
+		int[] calc = new int[t];
+		for(int i = 0; i < t;i++) {
+			System.out.println("Nome da "+(i+1)+"° escola" );
+			nome[i] = scan.next();
+			System.out.println("Nota samba-enredo "+(i+1)+":" );
+			n1 = scan.nextInt();
+			System.out.println("Nota fantasia "+(i+1)+":" );
+			n2 = scan.nextInt();
+			System.out.println("Nota bateria "+(i+1)+":" );
+			n3 = scan.nextInt();
+			calc[i] = (n1 + n2 + n3)/3;
+		}
+		for(int i = 0; i < t; i++) {
+			System.out.println(+(i+1)+"Escola"+nome[i]+" Media das notas:"+ calc[i]);
+		}
+	}
+
+	public static void GeraNomes() {
+		scan = new Scanner(System.in);
+		Random rand = new Random();
+
+		System.out.print("Digite quantos nomes você deseja gerar até 5:");
+		int qtd = scan.nextInt();
+
+		String[] nomes = { "João", "Maria", "Ivone", "Marcelo", "Marcos", "Juliana", "Brino", "Bruna" };
+
+		for (int i = 0; i < qtd; i++) {
+			int aleatorio = rand.nextInt(nomes.length);
+			System.out.println(nomes[aleatorio]);
+		}
+
+	}
+
+}
