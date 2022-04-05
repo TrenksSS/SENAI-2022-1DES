@@ -8,13 +8,14 @@ public class Cliente extends Pessoa{
 	
 	public Cliente(String nome, String telefone, Date nascimeto, int id, double creditoLimite) {
 		super(nome, telefone, nascimeto);
-		this.creditoLimite = creditoLimite;
 		this.id = id;
+		this.creditoLimite = creditoLimite;
+		
 	}
 
 	@Override
 	public String toString() {
-		return "" + id + "\t" + creditoLimite;
+		return   id + "\t" + creditoLimite + super.toString();
 	}
 	
 
