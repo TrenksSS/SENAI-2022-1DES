@@ -1,0 +1,25 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+.li1{
+    margin:40px;
+}
+.li2{
+    display:flex;
+    margin:35px;
+}
+.li2 li{
+    margin:15px;
+}
+.it{
+    display:flex;
+    margin:30px;
+}
+.it p{
+    margin:10px;
+}
+#link{
+    position:absolute;
+    right:0;
+    margin: 20px;
+}
