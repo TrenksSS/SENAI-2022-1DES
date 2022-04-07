@@ -6,3 +6,26 @@ body{
     right:0;
     margin: 20px;
 }
+.todos{
+    display: flex;
+}
+.cor1{
+    width: 100%;
+    height: 95px;
+    background-color:rgb(231, 95, 95);
+}
+.cor2{
+    width: 400px;
+    height: 550px;
+    background-color:rgb(245, 141, 141);
+}
+.cor3{
+    width: 100%;
+    height: 550px;
+    background-color:rgb(148, 32, 32);
+}
+.cor4{
+    width: 100%;
+    height: 95px;
+    background-color:rgb(231, 95, 95);
+}
