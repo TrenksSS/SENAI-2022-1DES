@@ -1,0 +1,21 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    display:grid;
+}
+.container {
+    display: grid;
+    grid-template-rows: 8vh 20vh 20vh;
+    grid-template-columns: 50vw 50vw 10vw;
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "h h h3"
+      "n n1 n2"
+      "f f1 f2";
+ }
+ .cabeca{
+     display: flex;
+     grid-area: h ;
+     background-color:rgb(62, 42, 88);
+     color: white;
+ }
+
