@@ -1,21 +1,85 @@
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    display:grid;
-}
-.container {
-    display: grid;
-    grid-template-rows: 8vh 20vh 20vh;
-    grid-template-columns: 50vw 50vw 10vw;
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "h h h3"
-      "n n1 n2"
-      "f f1 f2";
- }
- .cabeca{
-     display: flex;
-     grid-area: h ;
-     background-color:rgb(62, 42, 88);
-     color: white;
- }
+@import url(../../global.css);
 
+body {
+    background-color: rgb(226, 226, 226);
+}
+header {
+    height: 7vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(73, 73, 73);
+    color: white;
+    cursor: default;
+}
+header div {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+}
+header img {
+    cursor: pointer;
+}
+main{
+    height: 90vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 35vw  ;
+    grid-template-rows: 50vh 50vh;
+    background-color: rgb(226, 226, 226);
+}
+.performance{    
+    grid-area: 1 / 1;
+    height: 80%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+    background-color: #fff;
+    padding: 15px;
+    margin: 30px 0 0 30px;
+}
+.performance p, input, select{
+    padding: 2%;
+}
+.performance input, select{
+    margin: 0 7px;
+    outline: none;
+    cursor: pointer;
+}
+
+.tabela{
+    margin: 0 45px 20px 17px;
+    grid-area: 2 / 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+.tabela div{
+    width: 250px;
+    height:100px;
+    padding: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2px;
+    background-color: #5984F4;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+.tabela div h2{
+    text-align: right;
+    font-size: 20px;
+}
+.grafico{
+    width: 1100px;
+    grid-area: 1 / 2 / span 2 ;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}

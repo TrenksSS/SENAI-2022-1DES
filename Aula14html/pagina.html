@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard Performance</title>
     <link rel="stylesheet" href="style/style.css">
+    <title>Qualidade Aplicada Ltda.</title>
 </head>
-
 <body>
-    <div class="container">
-        <div class="cabeca">
-            <img src="img/pagamento-movel.png">
-            <p>Qualidade Aplicada Ltda</p>
-            <p>Olá, Claudio</p>
-            <p>Sair</p>
+    <header>
+        <div>
+            <span><img src="img/pagamento-movel.png" width="30px"></span>
+            <span><p>Qualidade Aplicada Ltda.</p></span>
         </div>
-    </div>
+        <div>
+            <span>Olá, Cleiton</span>
+            <span><img src="img/botao-de-menu.png" width="30px"></span>
+            <span><img src="img/home.png" width="20px"></span>
+            <span><img src="img/user.png" width="20px"></span>
+            <span><img src="img/information.png" width="25px"></span>
+            <span><p>Sair</p></span>
+        </div>
+    </header>
+    <main>
+        <div class="performance">
+            <p>DashBoard Performance</p>
+            <hr>
+            <p>Periodo:</p>
+            <input type="date">
+            <input type="date">
+            <p>Tipo de Atividade:</p>
+            <select name="cars" id="cars">
+                <option value="01">Opção1</option>
+                <option value="02">Opção2</option>
+                <option value="03">Opção3</option>
+                <option value="04">Opção4</option>
+            </select>
+        </div>
 
+        <div class="tabela">
+            <div>
+                <p>Atividades Concluídas</p>
+                <h2>9</h2>
+            </div>
+            <div>
+                <p>Menos Pontuação</p>
+                <h2>37</h2>
+            </div>
+            <div>
+                <p>Atividades Pendentes</p>
+                <h2>1</h2>
+            </div>
+            <div>
+                <p>Maior Pontuação</p>
+                <h2>91</h2>
+            </div>
+            <div>
+                <p>Atividades Canceladas</p>
+                <h2>0</h2>
+            </div>
+            <div>
+                <p>Tempo Médio em Dias</p>
+                <h2>12</h2>
+            </div>
+            <div>
+                <p>Na Media</p>
+                <h2>5</h2>
+            </div>
+            <div>
+                <p>Desvio Padrão</p>
+                <h2>19,36</h2>
+            </div>
+        </div>
+
+        <div class="grafico">
+            <img src="img/Captura de tela 2022-04-12 080754.png" width="90%">
+        </div>
+    </main>
 </body>
-
 </html>
