@@ -30,7 +30,7 @@ public static void main(String[] args) {
 			String data = nome + ";"  + nasc;
 			
 			
-			arq.escrever(data, "cadastro", true);
+			arq.escrever(data);
 			break;
 			
 	case 2:
@@ -39,6 +39,8 @@ public static void main(String[] args) {
 			for(String linha : infoFile) {
 				System.out.println(linha);
 			}
+
+			String[] temp = linha.split(";") ;
 			break;
 			
 	case 3:

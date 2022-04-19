@@ -8,18 +8,17 @@ import java.util.ArrayList;
 
 public class Arquivo {
 	
-	public void escrever(String info, String fileName, boolean append) {
+	public void escrever(String data) {
 		
 		try {
-			FileWriter fw = new FileWriter(fileName + ".csv", append);
+			FileWriter fw = new FileWriter("povo.txt", true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
-			bw.write(info + "\r\n");
+			bw.write(data);
 			
 			bw.close();
 			fw.close();
 		}catch(Exception e) {
-			System.out.println(e.toString());
 		}
 		
 	}
@@ -28,7 +27,7 @@ public class Arquivo {
 		ArrayList<String> data = new ArrayList<>();
 		
 		try {
-			FileReader fr = new FileReader(fileName + ".csv");
+			FileReader fr = new FileReader("povo.txt");
 			BufferedReader br = new BufferedReader(fr);
 			
 			String linha = "";
