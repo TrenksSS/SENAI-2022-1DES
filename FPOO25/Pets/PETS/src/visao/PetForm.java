@@ -1,116 +1,167 @@
 package visao;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controle.PetProcess;
 
 public class PetForm extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	// Atributos da tela
 	private JPanel painel;
-	private JLabel rotulo1, rotulo2, rotulo3, rotulo4, rotulo5,rotulo6,rotulo7,rotulo8;
-	private JTextField id, senha, nome, raca,peso,nascimento,dono,telefone;
-	private JButton login;
-	private JComboBox especie;
-
+	private JLabel id, especie, nomePet, raca, peso, nascimento, nomeDono, telefone, rotulos, imagem;
+	private JTextField tfId, tfNomePet, tfRaca, tfPeso, tfNascimento, tfNomeDono, tfTelefone;
+	private JComboBox<String> cbEspecie;
+	private JTextArea verResultados;
+	private JButton create, read, update, delete;
+	private String imgIco = "C:\\Users\\Professor\\Desktop\\work\\Pets\\assets\\icone.png";
+	private String[] imagens = { "C:\\Users\\suporte\\Desktop\\SENAI-2022-1DES\\FPOO25\\Pets\\dog.png",
+			"C:\\Users\\suporte\\Desktop\\SENAI-2022-1DES\\FPOO25\\Pets\\miau.png",
+			"C:\\Users\\suporte\\Desktop\\SENAI-2022-1DES\\FPOO25\\Pets\\coelho.png",
+			"C:\\Users\\suporte\\Desktop\\SENAI-2022-1DES\\FPOO25\\Pets\\ornitorrinco.png" };
+	private ImageIcon icon;
+	private int autoId = 1;
+	private String texto = "";
 	PetForm() {
-
-		// Propriedades Básicas
-		setTitle("Tela de Login");
-		setBounds(600, 600, 660, 600);
+		setTitle("Formulário de Pets");
+		setBounds(200, 300, 500, 500);
+		setIconImage(new ImageIcon(imgIco).getImage());
+		painel = new JPanel();
+		painel.setBackground(new Color(255, 233, 213));
+		setContentPane(painel);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		painel = new JPanel(); //Painel de elementos
-		setContentPane(painel); //Configua o painel
 		setLayout(null);
 
-		// Conteúdos da tela
-		rotulo1 = new JLabel("Id:");
-		rotulo1.setBounds(20, 20, 100, 20);
-		id = new JTextField();
-		id.setBounds(50, 20, 200, 30);
-		
-		rotulo3 = new JLabel ("Espeie");
-		rotulo3.setBounds(20, 40, 150, 20);
-		especie = new JComboBox();
-		especie.setBounds(20, 40, 300, 20);
-		
-		
-		rotulo2 = new JLabel("Raça:");
-		rotulo2.setBounds(20, 60, 100, 20);
-		raca = new JTextField();
-		raca.setBounds(70, 60, 200, 30);
-		
-		rotulo4 = new JLabel("Nome:");
-		rotulo4.setBounds(20, 90, 200, 20);
-		nome = new JTextField();
-		nome.setBounds(70, 90, 300, 20);
-	
-		
-		rotulo5 = new JLabel("Peso:");
-		rotulo5.setBounds(20, 110, 250, 20);
-		peso = new JTextField();
-		peso.setBounds(70, 110, 300, 20);
-		
-		rotulo6 = new JLabel("Nascimento:");
-		rotulo6.setBounds(20, 140, 300, 20);
-		nascimento = new JTextField();
-		nascimento.setBounds(70, 140, 300, 20);
-		
-		rotulo7 = new JLabel("Dono:");
-		rotulo7.setBounds(20, 170, 350, 20);
-		dono = new JTextField();
-		dono.setBounds(70, 170, 300, 20);
-		
-		rotulo8 = new JLabel("Telefone:");
-		rotulo8.setBounds(20, 200, 400, 20);
-		telefone = new JTextField();
-		telefone.setBounds(70, 200, 300, 20);
-		
-		login = new JButton("Login");
-		login.setBounds(400, 100, 200, 30);
-		
-		//Habilitando o evento de clicar no botão
-		login.addActionListener(this);
-
-		//Adicioar todos os elementos no painel
-		painel.add(rotulo1);
+		id = new JLabel("Id:");
+		id.setBounds(20, 20, 120, 30);
 		painel.add(id);
-		painel.add(rotulo3);
+		especie = new JLabel("Especie:");
+		especie.setBounds(20, 50, 120, 30);
 		painel.add(especie);
-		painel.add(especie);
-		painel.add(rotulo2);
-		painel.add(rotulo4);
-		painel.add(nome);
-		painel.add(rotulo5);
-		painel.add(peso);
+		nomePet = new JLabel("Nome pet:");
+		nomePet.setBounds(20, 80, 120, 30);
+		painel.add(nomePet);
+		raca = new JLabel("Raça:");
+		raca.setBounds(20, 110, 120, 30);
 		painel.add(raca);
-		painel.add(rotulo6);
+		peso = new JLabel("Peso:");
+		peso.setBounds(20, 140, 120, 30);
+		painel.add(peso);
+		nascimento = new JLabel("Nascimento:");
+		nascimento.setBounds(20, 170, 120, 30);
 		painel.add(nascimento);
-		painel.add(rotulo7);
-		painel.add(dono);
-		painel.add(rotulo8);
+		nomeDono = new JLabel("Nome dono:");
+		nomeDono.setBounds(20, 200, 120, 30);
+		painel.add(nomeDono);
+		telefone = new JLabel("Telefone:");
+		telefone.setBounds(20, 230, 120, 30);
 		painel.add(telefone);
-		painel.add(login);
-		painel.add(rotulo1);
+		rotulos = new JLabel("Id:     Espécie:       Pet:        Peso:       Idade:       Dono:        Telefone:");
+		rotulos.setBounds(20, 260, 400, 30);
+		painel.add(rotulos);
+
+		tfId = new JTextField(String.format("%d", autoId));
+		tfId.setEditable(false);
+		tfId.setBounds(140, 20, 160, 30);
+		painel.add(tfId);
+		cbEspecie = new JComboBox<String>(new String[] {"Cachorro", "Gato", "Coelho", "Outro" });
+		cbEspecie.setBounds(140, 50, 160, 30);
+		painel.add(cbEspecie);
+		tfNomePet = new JTextField();
+		tfNomePet.setBounds(140, 80, 160, 30);
+		painel.add(tfNomePet);
+		tfRaca = new JTextField();
+		tfRaca.setBounds(140, 110, 160, 30);
+		painel.add(tfRaca);
+		tfPeso = new JTextField();
+		tfPeso.setBounds(140, 140, 160, 30);
+		painel.add(tfPeso);
+		tfNascimento = new JTextField();
+		tfNascimento.setBounds(140, 170, 160, 30);
+		painel.add(tfNascimento);
+		tfNomeDono = new JTextField();
+		tfNomeDono.setBounds(140, 200, 160, 30);
+		painel.add(tfNomeDono);
+		tfTelefone = new JTextField();
+		tfTelefone.setBounds(140, 230, 160, 30);
+		painel.add(tfTelefone);
+		verResultados = new JTextArea();
+		verResultados.setEnabled(false);
+		verResultados.setBounds(20, 290, 445, 150);
+		verResultados.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		preecherAreaDeTexto();
+		painel.add(verResultados);
+		imagem = new JLabel();
+		imagem.setBounds(310, 145, 150, 115);
+		imagem.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		mostrarImagem(0);
+		painel.add(imagem);
+
+		create = new JButton("Cadastrar");
+		read = new JButton("Buscar");
+		update = new JButton("Atualizar");
+		delete = new JButton("Excluir");
+		create.setBounds(310, 20, 150, 30);
+		read.setBounds(310, 50, 150, 30);
+		update.setBounds(310, 80, 150, 30);
+		delete.setBounds(310, 110, 150, 30);
+		update.setEnabled(false);
+		delete.setEnabled(false);
+		painel.add(create);
+		painel.add(read);
+		painel.add(update);
+		painel.add(delete);
+
+		cbEspecie.addActionListener(this);
+		create.addActionListener(this);
+		read.addActionListener(this);
+		update.addActionListener(this);
+		delete.addActionListener(this);
+
+	}
+	private void preecherAreaDeTexto() {
+		for (Pet p : PetProcess.pets) {
+			texto+=p.toString();
+			
+		}
+		verResultados.setText(texto);
 	}
 
-	public static void main(String[] args) {
-		PetForm tela = new PetForm();
-		tela.setVisible(true);
+	private void mostrarImagem(int indice) {
+		icon = new ImageIcon(new ImageIcon(imagens[indice]).getImage().getScaledInstance(150, 115, 100));
+		imagem.setIcon(icon);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == cbEspecie) {
+			mostrarImagem(cbEspecie.getSelectedIndex());
+		}
+	}
+	private void cadastrar() {
+		if(tfNomePet.getText().length() !=0) {
+	
+		}else
+			JOptionPane.showMessageDialog(this, "Favor preencher todosos campos.");
 		
 	}
+
+	public static void main(String[] agrs) throws ParseException {
+		PetProcess.carregarTestes();
+		new PetForm().setVisible(true);
+	}
+
 }
