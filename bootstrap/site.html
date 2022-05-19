@@ -11,146 +11,199 @@
 </head>
 
 <body>
-    <h1>Olá!</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-    <div class="row">
-        <div class="col-12 col-xl-2 bg-primary">
-            coluna 1
-        </div>
-        <div class="col-12 col-xl-8 bg-info">
-            <label for="email" class="form-label">E-mail</label>
-            <select class="form-select">
-
-                <option value="valor">valor 1</option>
-                <option value="valor">valor 2</option>
-                <option value="valor">valor 3</option>
-            </select>
-
-            <div class="form-check">
-                <input type="checkbox" id="valor" class="form-check-input">
-                <label for="valor" class="form-check-label">valor</label>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-2 bg-primary">
             </div>
-            <form class="needs-valdation was-validated" novalidate>
-                <div class="col-5">
-                    <label for="nome" class="form-label">Nome Completo</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Informe oneme completo" required>
-                    <div class="invalid-feedback">
-                        Campo nome obrigatório.
-                    </div>
-                    <div class="valid-feedback">
-                        parabens
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary"> Cadastrar
-                </button>
-            </form>
+            <div class="col-12 col-xl-8 bg-info">
+                <label for="email" class="form-label">E-mail</label>
+                <select class="form-select">
 
-            <div class="accordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
-                            Quais são os breakspoints dp bootstrap?
-                        </button>
-                    </h2>
-                    <div id="q1" class="accordion=collapse collapse ">
-                        <div class="accordian-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Classe do Bootstrap</th>
-                                        <th>KLargura em px</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>nome</td>
-                                        <td>576</td>
-                                    </tr>
-                                    <tr>
-                                        <td>sm</td>
-                                        <td>576</td>
-                                    </tr>
-                                    <tr>
-                                        <td>md</td>
-                                        <td>768</td>
-                                    </tr>
-                                    <tr>
-                                        <td>lg</td>
-                                        <td>>=992</td>
-                                    </tr>
-                                    <tr>
-                                        <td>xl</td>
-                                        <td>1200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>xl</td>
-                                        <td>1400</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <option value="valor">valor 1</option>
+                    <option value="valor">valor 2</option>
+                    <option value="valor">valor 3</option>
+                </select>
+
+                <div class="form-check">
+                    <input type="checkbox" id="valor" class="form-check-input">
+                    <label for="valor" class="form-check-label">valor</label>
+                </div>
+                <form class="needs-valdation was-validated" novalidate>
+                    <div class="col-5">
+                        <label for="nome" class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Informe oneme completo" required>
+                        <div class="invalid-feedback">
+                            Campo nome obrigatório.
+                        </div>
+                        <div class="valid-feedback">
+                            parabens
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Cadastrar
+                    </button>
+                </form>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
+                                Quais são os breakspoints dp bootstrap?
+                            </button>
+                        </h2>
+                        <div id="q1" class="accordion=collapse collapse ">
+                            <div class="accordian-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Classe do Bootstrap</th>
+                                            <th>KLargura em px</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>nome</td>
+                                            <td>576</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sm</td>
+                                            <td>576</td>
+                                        </tr>
+                                        <tr>
+                                            <td>md</td>
+                                            <td>768</td>
+                                        </tr>
+                                        <tr>
+                                            <td>lg</td>
+                                            <td>>=992</td>
+                                        </tr>
+                                        <tr>
+                                            <td>xl</td>
+                                            <td>1200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>xl</td>
+                                            <td>1400</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q2">
+                                Para que serve a propriedade data-bs-target?
+                            </button>
+                        </h2>
+                        <div id="q2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>Destino a ser alterado de a cordo com ação do bootstrap</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q3">
+                                Quais os links para inportar o Bootstrap?
+                            </button>
+                        </h2>
+                        <div id="q3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                <h6>Link do css</h6>
+                                <p> https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css</p>
+                                </p>
+                                <p>
+                                <h6>Link do JS</h6>
+                                <p>https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js
+                                </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q2">
-                            Para que serve a propriedade data-bs-target?
-                        </button>
-                    </h2>
-                    <div id="q2" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>Destino a ser alterado de a cordo com ação do bootstrap</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q3">
-                            Quais os links para inportar o Bootstrap?
-                        </button>
-                    </h2>
-                    <div id="q3" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p>
-                            <h6>Link do css</h6>
-                            <p> https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css</p>
-                            </p>
-                            <p>
-                            <h6>Link do JS</h6>
-                            <p>https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-warning m-2" > 
-                Notificação
-                <span class="badge text-bg-danger">5
-                </span>
-            </button>
 
-            <div  id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-iner">
-                    <div class="carousel-item"><img src="1af4e15d1eadc5197f02a019a1632518.jpg" alt="otacu1"></div>
-                    <div class="carousel-item active"><img src="a65ccf8b823caf5b94a4650cd81485b0.jpg" alt="otacu2"></div>
-                    <div class="carousel-item"><img src="images.jpg" alt="otacu3"></div>
-                </div>
-
-                <button type="button" class="carousel-control-prev" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
-                    <span class= "carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Voltar</span>
+                <button class="btn btn-warning m-2">
+                    Notificação
+                    <span class="badge text-bg-danger">5
+                    </span>
                 </button>
 
-                <button type="button" class="carousel-control-next" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
-                    <span class= "carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Voltar</span>
-                </button>
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="carouselExampleSlidesOnly" data-bs-slide-to="0"></button>
+                        <button type="button" data-bs-target="carouselExampleSlidesOnly" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="carouselExampleSlidesOnly" data-bs-slide-to="2"></button>
+                </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-bloc w-50" src="1af4e15d1eadc5197f02a019a1632518.jpg">     
+                        </div>
+                            <div class="carousel-item">
+                                <img class="d-bloc w-50" src="a65ccf8b823caf5b94a4650cd81485b0.jpg">
+                        </div>
+                            <div class="carousel-item">
+                                <img class="d-bloc w-50" src="images.jpg">
+                        </div>
+                    </div>
+
+                    <button type="button" class="carousel-control-prev" data-bs-target="#carouselExampleSlidesOnly"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Voltar</span>
+                    </button>
+
+                    <button type="button" class="carousel-control-next" data-bs-target="#carouselExampleSlidesOnly"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Voltar</span>
+                    </button>
+                </div>
+
+                <div class="card m-2" style="width: 18rem;">
+                    <img src="viagem-chihiro.webp" alt="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Coisa de otaco</h5>
+                        <p class="card-text">Imagem que um otaco ficaria louco</p>
+                        <a href="#" class="btn btn-primary">Ver coisas de otaco</a>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teste">Mostrar</button>
+                <div class="modal fade" id="teste" tabindex="-1" aria-labelledby="teste">
+                    <div class="modall-dialog">
+                        <div class="moral-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="teste">Olá otaco</h5>
+                                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <p>Otacooo lixo</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
             </div>
-        </div>
-        <div class="col-12 col-xl-2 bg-primary">
-            coluna 3
+
+            <div class="col-12 col-xl-2 bg-primary">
+
+                coluna 3
+            </div>
         </div>
     </div>
 
