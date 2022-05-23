@@ -1,0 +1,119 @@
+package models;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Currency;
+import java.util.Date;
+import java.util.Locale;
+
+public class Manu {
+
+
+	private int id;
+	private String equipamento;
+	private String dataManu;
+	private double custoHora;
+	private double  tempoGasto;
+
+	private final Locale BRASIL = new Locale("pt", "BR");
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private DecimalFormat df = new DecimalFormat("#.00");
+	public Manu(int id) {
+		this.id = id;
+	}
+
+	public Manu(int id, String equipamento, String dataManu, double custoHora, double tempoGasto, SimpleDateFormat sdf,
+			DecimalFormat df) {
+		super();
+		this.id = id;
+		this.equipamento = equipamento;
+		this.dataManu = dataManu;
+		this.custoHora = custoHora;
+		this.tempoGasto = tempoGasto;
+	}
+	public Manu(String linha) {
+		df.setCurrency(Currency.getInstance(BRASIL));
+		
+		this.id = Integer.parseInt(linha.split(";")[0]);
+		this.equipamento = linha.split(";")[1];
+		this.dataManu = linha.split(";")[2];
+		this.custoHora = Double .parseDouble(linha.split(";")[3]);
+		this.tempoGasto = Double.parseDouble(linha.split(";")[4]);
+	}
+
+	// Getters && Setters
+	public int getId() {
+		return id;
+	}
+
+	public String getId(String s) {
+		return String.format("%d", id);
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getEspecie() {
+		return equipamento;
+	}
+
+	public void setEspecie(String equipamento) {
+		this.equipamento = equipamento;
+	}
+
+	public String getNomePet() {
+		return dataManu;
+	}
+
+	public void setNomePet(String dataManu) {
+		this.dataManu = dataManu;
+	}
+
+	public Double getRaca() {
+		return custoHora;
+	}
+
+	public void setRaca(Double custoHora) {
+		this.custoHora = custoHora;
+	}
+
+	public Double getNascimento() {
+		return tempoGasto;
+	}
+
+	public void setNascimento(String dataManu) {
+		this.tempoGasto = tempoGasto;
+	}
+
+	// Define o "id" como campo Chave
+	@Override
+	public int hashCode() {
+		return Object.hash(id);
+	}
+
+	// Define o "id" como campo Chave
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Manu other = (Manu) obj;
+		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return id + "\t" + especie + "\t" + nomePet + "\t" + raca + "\t" + String.format("%.2f", peso) + "\t"
+				+ obterIdade() + "\t" + nomeDono + "\t" + telefone + "\n";
+	}
+
+	public String toCSV() {
+		return id + ";" + especie + ";" + nomePet + ";" + raca + ";" + String.format("%.2f", peso) + ";"
+				+ sdf.format(nascimento) + ";" + nomeDono + ";" + telefone + "\r\n";
+	}
+
+}
