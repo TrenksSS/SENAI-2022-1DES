@@ -57,15 +57,137 @@
                     <span class="visually-hidden">Proximo</span>
                 </button>
             </div>
-            <div class="card m-2" style="width: 18rem;">
-                <img src="imagens/350z.png" alt="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Nisan 350z</h5>
-                    <p class="card-text">Um dos carros mais populares para drift</p>
-                    <a href="#" class="btn btn-primary">Ver mais</a>
-                </div>
-            </div>
-           </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="imagens/350z.png" alt="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Nisan 350z</h5>
+                            <p class="card-text">Um dos carros mais populares para drift</p>
+                            <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                  data-bs-target="#mteste">Ver mais</button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="imagens/silvia.jpg" alt="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Nisan Silvia s15</h5>
+                            <p class="card-text">Esse é o queridinhos dos pilostos com sua montagem atraente, tambem um dos mais usados pelos pilotos para suas competições</p>
+                            <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                            data-bs-target="#m2teste">Ver mais</button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="imagens/rx7.jpg" alt="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Mazda Rx7</h5>
+                            <p class="card-text">Muito conhecido pelo seu motor rotativo diferende de todos os outros esse se destaca</p>
+                            <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                            data-bs-target="#m3teste">Ver mais</button>
+                        </div>
+                    </div>
+                  </div>
+
+                  <H4>Cadastre seu emai para ficar sempre informado do que acontece no mundo do Drift</H4>
+
+                  <form class="needs-valdation was-validated" novalidate>
+                    <div class="col-5">
+                        <label for="nome" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Informe um email valido" required>
+                        <div class="invalid-feedback">
+                            Campo email obrigatório.
+                        </div>
+                        <div class="valid-feedback">
+                            Parabéns
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Cadastrar
+                    </button>
+                </form>
+
+                <div class="modal fade" id="mteste" tabindex="-1" aria-labelledby="mteste">>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title"  id="mteste">Nissan 350Z</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>O Nissan 350Z é um pequeno esportivo que nasceu em 2002 como uma resposta a outros modelos da época que tinham um design mais exagerado e pouca potência embarcada.</p>
+                          <p>A primeira aparição da linha Z, antes do Nissan 350Z, se deu em 1999 durante o Salão do Automóvel de Detroit, onde a Nissan apresentava um substituto para o finado 240Z.</p>
+                          <p>O carro conceito tinha um visual bastante chamativo, com sua carroceria pequena e com design esportivo e sua cor chamativa “Lemans Sunset”.</p>
+                          <p>O perfil do carro seria basicamente o mesmo do modelo de produção, ou seja, seria um cupê de duas portas e quatro lugares.</p>
+                          <img src="imagens/ni1.jpg" alt="primeiro modelo nissan " width="300px">
+                          <p>Só que o visual do Nissan 350Z ainda estava longe.</p>
+                          <p>A dianteira exibia faróis arredondados com desenho pouco agradável, e sua entrada de ar no para choque tinha um formato de sorriso invertido.</p>
+                          <p>As laterais eram extremamente limpas e as portas contavam apenas com uma espécie de fenda para a abertura das mesmas.</p>
+                          <p>Já na traseira o precursor do Nissan 350Z era ainda mais feio.</p>
+                          <p>As lanternas traseiras tinham um formato mais amendoado com duas seções ovais, sendo uma para a luz de freio e uma para a de indicação de seta.</p>
+                          <img src="imagens/ni2.jpg" alt="primeiro modero visto de tras" width="300px">
+                          <p>O para choque também tinha uma parte côncava com apenas o porta placas ao centro dando uma sensação de profundidade um tanto quanto estranha.</p>
+                          <p>Apesar do seu design um tanto quanto exótico, o 240Z, como também era chamado, era um conceito totalmente funcional.</p>
+                          <p>Ele vinha com um motor 2.4 litros emprestado do Nissan Altima produzindo 200 cavalos e 24,88 kgfm de torque bruto. O modelo conseguiu animar os participantes do salão, mas ainda existiriam melhorias antes dele chegar às ruas como Nissan 350Z.</p>
+                          <h3>Nissan Z Concept 2001</h3>
+                          <p>Diferentemente do conceito apresentado em 1999, o novo Concept Z de 2001 era basicamente o Nissan 350Z de produção com suas linhas extremamente harmônicas e visual mais equilibrado do que o modelo apresentado cerca de dois anos antes.</p>
+                          <img src="imagens/Nissan-Z-Concept-01.2001-1024x768.jpg" alt="modelo 2001" width="300px">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="m2teste" tabindex="-1" aria-labelledby="m2teste">>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title"  id="m2teste">Nissan Silvia s15</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Conhecido pela sua bela construção o Silvia s15 é muito qurido pelos amantes do Drift </p>
+                         <img src="imagens/silvia2.jpg" alt="motor rotativo" width="300px" >
+                         <p>Contando com varios bodys kits para deixar tudo mais interessante, como esse da rocket bunny</p>
+                         <img src="imagens/silvia3.jpg" alt="" width="300px">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="m3teste" tabindex="-1" aria-labelledby="m3teste">>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title"  id="m3teste">Nissan Silvia s15</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Conhecido pelo seu motor rotativo diferente de todos os outros</p>
+                         <img src="imagens/Mazda-RX-7_925x520_acf_cropped.jpg" alt="motor rotativo" width="300px" >
+                         <p>Que funciona da seguinte forma</p>
+                         <img src="imagens/220px-Wankel_Cycle_anim_en.gif" alt="gif" width="300px">
+                         <img src="imagens/motor-wankel.gif" alt="">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+           </div>  
            
            <div class="col-12 col-md-2 bg-dark">
             
