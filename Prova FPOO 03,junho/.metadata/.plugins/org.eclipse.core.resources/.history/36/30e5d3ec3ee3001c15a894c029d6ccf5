@@ -1,0 +1,10 @@
+package viewers;
+
+import javax.swing.JLabel;
+
+public class OrcamentoForm {
+	private panel;
+	private JLabel Lid;
+	private JTextField id, fornecedor, produto;
+
+}

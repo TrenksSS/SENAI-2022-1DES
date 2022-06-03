@@ -1,0 +1,43 @@
+package dao;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.util.ArrayList;
+
+import models.Orcamento;
+
+public class OrcamentoDAO {
+	private BufferedReader br;
+	private BufferedWriter bw;
+	private String arquivo = "C:\\Users\\suporte\\Desktop\\Prova FPOO 03,junho\\Registro de Orçamentos\\orcamentos\\orcamentos.csv";
+	private ArrayList<Orcamento> orcamento = new ArrayList();
+
+	public ArrayList<Orcamento> ler() {
+		Orcamento orc;
+		try {
+			br = new BufferedReader(new FileReader(arquivo));
+			String linha = br.readLine();
+			while (linha != null) {
+				orc = new Orcamento(linha);
+				orcamento.add(orc);
+				linha = br.readLine();
+			}
+		} catch (FileNotFoundExeption e) {
+			System.out.println(e);
+		} catch (IOExeption e) {
+			System.out.println(e);
+		}
+		return orcamentos;
+	}
+
+	public void escrever(ArrayList<Orcamento> vs) {
+	try {
+		bw = new BufferedWiter(new FilleWriter(arquivo));
+				for(Orcamento or : vs) {
+					bw.write(or.toCSV());
+}
+	}
+		
+	}
+
+}

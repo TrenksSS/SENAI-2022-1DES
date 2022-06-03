@@ -1,0 +1,24 @@
+package controllers;
+
+import java.util.ArrayList;
+
+import dao.OrcamentoDAO;
+import models.Orcamento;
+
+public class OrcamentoProcess {
+	public ArrayList<Orcamento>orcamento= new ArrayList<>;
+	private OrcamentoDAO od;
+	
+	public boolean comprarProduto() {
+	return false;
+	}
+	public boolean salvar() {
+		od.escrever(Orcamento);
+	}
+	public void abrir(String orcamento) {
+		orcamentto = md.ler();
+		if(orcamento.size() == 0) {
+			orcamento.add(new Orcamento (1, 'Mario", "caixa", "10"))
+		}
+	}
+}
