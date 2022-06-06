@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\suporte\Desktop\SENAI-2022-1DES\Prova FPOO 03,junho\Registro de Orçamentos\.metadata\.plugins\org.eclipse.jdt.core

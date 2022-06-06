@@ -1,32 +1,33 @@
 package models;
 
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Currency;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Objects;
-
 public class Orcamento {
 
 	private int id;
-	private Date data;
 	private String fornecedor;
 	private String produto;
-	private double valor;
-
-	private final Locale BRASIL = new Locale("pt", "BR");
-	private DecimalFormat df = new DecimalFormat("#.00");
-
-	public Orcamento(int id, String data, String fornrcrdor, String produto) {
+	private double preco;
+	private boolean menorPreco;
+	
+	
+	public Orcamento(int id, String fornecedor, String produto, double preco, boolean menorPreco) {
+		this.id = id;
+		this.fornecedor = fornecedor;
+		this.produto = produto;
+		this.preco = preco;
+		this.menorPreco = menorPreco;
 	}
-	public Orcamento(int idd) {
-		// TODO Auto-generated constructor stub
+	
+	public Orcamento(String linha) {
+		this.id = Integer.parseInt(linha.split(";")[0]);
+		this.fornecedor = linha.split(";")[1];
+		this.produto = linha.split(";")[2];
+		this.preco = Double.parseDouble(linha.split(";")[3]);
+		this.menorPreco = Boolean.parseBoolean(linha.split(";")[4]);
 	}
-	public int getId() {
-		return id;
+	
+
+	public String getId(String s) {
+		return String.valueOf(id);
 	}
 
 	public void setId(int id) {
@@ -48,34 +49,42 @@ public class Orcamento {
 	public void setProduto(String produto) {
 		this.produto = produto;
 	}
-	public double getValor() {
-		return valor;
+
+	public double getPreco() {
+		return preco;
 	}
-	public double setValor(double valor) {
-		return this.valor = valor;
+	
+	public String getPreco(String s) {
+		return String.format("%.2f", preco);
 	}
 
-	public DecimalFormat getDf() {
-		return df;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
-	public void setDf(DecimalFormat df) {
-		this.df = df;
+	public boolean isMenorPreco() {
+		return menorPreco;
 	}
 
-	public Locale getBRASIL() {
-		return BRASIL;
+	public void setMaisBarato(boolean menorPreco) {
+		this.menorPreco = menorPreco;
 	}
 
+	
+	public String barato() {
+		if(menorPreco) {
+			return "menor preço";
+		}
+		return null;
+	}
+	
+	@Override
 	public String toString() {
-		return id + "\t" +  "\t" + fornecedor
-				+ "\t" + produto + "\t" + valor + "\n";
+		return id + ";" + fornecedor + ";" + produto + ";" + preco + ";" + menorPreco;
 	}
-
+	
 	public String toCSV() {
-		return id + ";" +  ";"  + fornecedor + ";" + produto + ";" + valor + "\r\n";
+		return id + ";" + fornecedor + ";" + produto + ";" + preco + ";" + barato();
 	}
-
+	
 }
-
-

@@ -5,319 +5,199 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Currency;
 import java.util.Locale;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import controllers.OrcamentoProcess;
 import models.Orcamento;
 
-public class OrcamentoForm extends JFrame{
-	
-	private static final long serialVersionUID = 1L;
-	private JPanel painel;
-	private JLabel id, data, equip, fornecedor, produto;
-	private JTextField tfid, tfFornecedor , tfProduto, tfValor;
-	private DefaultTableModel tableModel;
-	private JButton create, read, update, delete;
-	private JTable table;
-	private JScrollPane rolagem;
-	
-	private String imgIco = "";
-	private int autoId = OrcamentoProcess.orcamento.get(OrcamentoProcess.orcamento.size() - 1).getId() + 1;
-	private DecimalFormat df = new DecimalFormat("#.00");
-	private final Locale BRASIL = new Locale("pt", "BR");
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
+public class OrcamentoForm extends JFrame implements ActionListener {
 
+	private JPanel painel;
+	private JLabel id, fornecedor,produto,preco;
+	private JTextField tfId, tfFornecedor, tfProduto,tfPreco;
+	private JButton adicionar, alterar, excluir, buscar;
+	private JTable tabelaOrcamentos;
+	private DefaultTableModel tableModel;
+	private JScrollPane scroll;
+	
+	private final Locale BRASIL = new Locale("pt", "BR");
+	private DecimalFormat df = new DecimalFormat("#.00");
+	
 	OrcamentoForm(){
-		setTitle("Regitro de Orçamento");
-		setBounds(100, 100, 610, 390);
-		setIconImage(new ImageIcon(imgIco).getImage());
+		setTitle("Orçamento");
+		setBounds(650, 200, 595,467);
 		painel = new JPanel();
+		painel.setBackground(new Color(0, 255, 255));
 		setContentPane(painel);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		
-		id = new JLabel("ID:");
-		id.setBounds(20, 25, 120, 30);
-		tfid = new JTextField(String.format("%d", autoId));
-		tfid.setEditable(false);
-		tfid.setEditable(false);
-		tfid.setBounds(40, 25, 40, 30);
-		tfid.setBackground(new Color(215, 215, 215));
-		
+		textField();
+		buttons();
+		tabela();
+	}
 	
-		fornecedor = new JLabel("Custo Hora:");
-		fornecedor.setBounds(215, 70, 80, 30);
-		tfFornecedor = new JTextField();
-		tfFornecedor.setBounds(290, 70, 80, 30);
-		tfFornecedor.setBackground(new Color(215, 215, 215));
-		
-		produto = new JLabel("Tempo gasto:");
-		produto.setBounds(380, 70, 80, 30);
-		tfProduto = new JTextField();
-		tfProduto.setBounds(460, 70, 80, 30);
-		tfProduto.setBackground(new Color(215, 215, 215));
-		
-		
+	private void textField(){
+		id = new JLabel("Id:");
+		id.setBounds(20, 20, 120, 30);
 		painel.add(id);
-		painel.add(tfid);
-		painel.add(data);
-		painel.add(equip);
+		tfId = new JTextField();
+		tfId.setBounds(130, 20, 90, 25);
+		painel.add(tfId);
+		
+		fornecedor = new JLabel("Fornecedor:");
+		fornecedor.setBounds(20, 50, 120, 30);
 		painel.add(fornecedor);
+		tfFornecedor = new JTextField();
+		tfFornecedor.setBounds(130, 50, 175, 25);
 		painel.add(tfFornecedor);
+		
+		produto = new JLabel("Produto:");
+		produto.setBounds(20, 80, 120, 30);
 		painel.add(produto);
+		tfProduto = new JTextField();
+		tfProduto.setBounds(130, 80, 175, 25);
 		painel.add(tfProduto);
 		
-		table = new JTable();
+		preco = new JLabel("Preço:");
+		preco.setBounds(20, 110, 120, 30);
+		painel.add(preco);
+		tfPreco = new JTextField();
+		tfPreco.setBounds(130, 110, 175, 25);
+		painel.add(tfPreco);
+	}
+	private void buttons() {
+		adicionar = new JButton("Adicionar");
+		adicionar.setBounds(360, 20, 170, 30);
+		painel.add(adicionar);
+		buscar = new JButton("Buscar");
+		buscar.setBounds(360, 60, 170, 30);
+		buscar.setEnabled(true);
+		painel.add(buscar);
+		alterar = new JButton("Alterar");
+		alterar.setBounds(360, 100, 80, 30);
+		alterar.setEnabled(false);
+		painel.add(alterar);
+		excluir = new JButton("Excluir");
+		excluir.setBounds(450, 100, 80, 30);
+		excluir.setEnabled(false);
+		painel.add(excluir);
+		
+		
+		adicionar.addActionListener(this);
+		buscar.addActionListener(this);
+		alterar.addActionListener(this);
+		excluir.addActionListener(this);
+	}
+	private void tabela() {
+		tabelaOrcamentos = new JTable();
 		tableModel = new DefaultTableModel();
 		tableModel.addColumn("Id");
-		tableModel.addColumn("Data");
-		tableModel.addColumn("Equipamento");
 		tableModel.addColumn("Fornecedor");
 		tableModel.addColumn("Produto");
-		tableModel.addColumn("Total");
-		
-		if (OrcamentoProcess.orcamento.size() != 1) {
+		tableModel.addColumn("Preco");
+		tableModel.addColumn("Melhor preço");
+		if(OrcamentoProcess.orcamentos.size() != 0) {
 			preencherTabela();
 		}
-		table = new JTable(tableModel);
-		table.setEnabled(false);
-		rolagem = new JScrollPane(table);
-		rolagem.setBounds(20, 170, 550, 130);
-		painel.add(rolagem);
-
-		
-		create = new JButton("Cadastrar");
-		create.setBounds(60, 120, 110, 30);
-		create.setBackground(new Color(189,236,182));
-		painel.add(create);
-
-		read = new JButton("Buscar");
-		read.setBounds(180, 120, 110, 30);
-		painel.add(read);
-
-		update = new JButton("Alterar");
-		update.setBounds(300, 120, 110, 30);
-		update.setEnabled(false);
-		painel.add(update);
-
-		delete = new JButton("Excluir");
-		delete.setBounds(420, 120, 110, 30);
-
-		delete.setEnabled(false);
-		painel.add(delete);
-		
-		
-		
-		create.addActionListener((ActionListener) new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		cadastrar();
-        	}
-        });
-		read.addActionListener((ActionListener) new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		buscar();
-        	}
-        });
-		update.addActionListener((ActionListener) new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		alterar();
-        	}
-        });
-		delete.addActionListener((ActionListener) new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		excluir();
-        	}
-        });
-		
+		tabelaOrcamentos = new JTable(tableModel);
+		tabelaOrcamentos.setEnabled(false);
+		scroll = new JScrollPane(tabelaOrcamentos);
+		scroll.setBounds(20, 180, 540, 230);
+		scroll.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		painel.add(scroll);
 	}
-	
-	int obterEquipamento(String equipamento) {
-		switch (equipamento) {
-		case "Paleteiras":
-			return 0;
-		case "Guindastes":
-			return 1;
-		case "Comboio":
-			return 2;
-		case "Monovias":
-			return 3;
-		case "Esteiras":
-			return 4;
-		default:
-			return -1;
-		}
-	}
-	
-	private void cadastrar() {
-		if(tfid.getText().length() != 0  &&
-				tfFornecedor.getText().length() != 0 && tfProduto.getText().length() != 0) {
-			
-			df.setCurrency(Currency.getInstance(BRASIL));
-			String fornecedor;
-			String produto;
-			try {
-				fornecedor = tfFornecedor.getText().toString();
-				produto = tfFornecedor.getText().toString();
-			} catch (ParseException e) {
-				System.out.println(e);
-				fornecedor = 0;
-				produto = 0;
-			}
-
-		}else {
-			JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
-		}
-	}
-	
-
-
-	
-	private void buscar() {
-		String text = JOptionPane.showInputDialog(this, "Digite o id do item");
-		try {
-			int id = Integer.parseInt(text);
-			
-			for (Orcamento m : OrcamentoProcess.orcamento) {
-				if (m.getId() == id) {
-					int indice = OrcamentoProcess.orcamento.indexOf(m);
-			tfid.setText(String.format("%d", OrcamentoProcess.orcamento.get(indice).getId()));
-			tfFornecedor.setText((String.format("%.2f" , OrcamentoProcess.orcamento.get(indice).getFornecedor())));
-			tfProduto.setText((String.format("%.2f", OrcamentoProcess.orcamento.get(indice).getProduto())));
-			create.setEnabled(false);
-			update.setEnabled(true);
-			delete.setEnabled(true);
-			OrcamentoProcess.salvar();
-					}
-				}
-			} catch (Exception e) {
-		JOptionPane.showMessageDialog(this, "Id inv�lido!", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-	
-}
-	private void alterar() {
-		int id = Integer.parseInt(tfid.getText());
-		Orcamento manu = new Orcamento(id);
-		int indice = OrcamentoProcess.orcamento.indexOf(manu);
-		if (tfid.getText().length() != 0 && tfdata.getText().length() != 0 && 
-				tfcustoHora.getText().length() != 0 && tftempoGasto.getText().length() != 0)  {
-			Orcamento tempOr = new Orcamento((tfid.getText()),fornecedor.getText), produto.getText(), (Double.parseDouble(tfvalor.getText().replace(",", "."))));
-			for (Orcamento m : OrcamentoProcess.orcamento) {
-				if (m.getId() == tempManu.getId()) {
-					m.setId(tempManu.getId());
-					m.setFornecedor(tempManu.getFornecedor());
-					m.setProduto(tempManu.getProduto());
-					
-				}
-			}
-			df.setCurrency(Currency.getInstance(BRASIL));
-			double fornecedor;
-			double produto;
-			try {
-				fornecedor = Double.parseDouble(df.parse(tfFornecedor.getText()).toString());
-				produto = Double.parseDouble(df.parse(tfProduto.getText()).toString());
-			} catch (ParseException e) {
-				System.out.println(e);
-				fornecedor = 0;
-				produto = 0;
-			}
-				preencherTabela();
-				limparCampos();
-				OrcamentoProcess.salvar();
-				
-				create.setEnabled(true);
-				update.setEnabled(false);
-				delete.setEnabled(false);
-				tfid.setText(String.format("%d", autoId));
-				OrcamentoProcess.salvar();
-			
-		} else {
-			JOptionPane.showMessageDialog(this, "Favor Preencher todas as informa��es");
-		}
-	}
-	
-	private void limparCampos() {
-		tfid.setText(String.format("%d",autoId));
-		tfFornecedor.setText(null);
-		tfProduto.setText(null);
-
-	}
-
 	private void preencherTabela() {
 		int totLinhas = tableModel.getRowCount();
-		if (tableModel.getRowCount() > 0) {
-			for (int i = 0; i < totLinhas; i++) {
+		if(tableModel.getRowCount() > 0) {
+			for(int i = 0; i < totLinhas; i++) {
 				tableModel.removeRow(0);
 			}
 		}
-		for (Orcamento m : OrcamentoProcess.orcamento) {
-			tableModel.addRow(new String[] { String.format("%d", m.getId()), String.format("%.2f", m.getFornecedor()), String.format("%.2f", m.getProduto()), String.valor())});
+		for (Orcamento o : OrcamentoProcess.orcamentos) {
+			tableModel.addRow(new String[] {o.getId("s"), o.getFornecedor(), o.getProduto(),o.getPreco("s"), o.barato()});
 		}
 	}
-
-	
-	private void excluir() {
-	if (JOptionPane.showConfirmDialog(this, "Tem certeza que deseja EXCLUIR esse Produto?") == 0) {
-		Orcamento prodTemp = null;
-		for (Orcamento m : OrcamentoProcess.orcamento) {
-			if (m.getId() == Integer.parseInt(tfid.getText())) {
-				prodTemp = m;
-			}
-		}
-
-		OrcamentoProcess.orcamento.remove(OrcamentoProcess.orcamento.indexOf(prodTemp));
-
-		preencherTabela();
-		limparCampos();
-		OrcamentoProcess.salvar();
-
-		create.setEnabled(true);
-		update.setEnabled(false);
-		delete.setEnabled(false);
+	private void limparCampos() {
+		tfId.setText(null);
+		tfFornecedor.setText(null);
+		tfProduto.setText(null);
+		tfPreco.setText(null);
 	}
-}
 	
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == create) {
-			cadastrar();
+		if(e.getSource() == adicionar) {
+			adicionar();
 		}
-		if (e.getSource() == read) {
+		if(e.getSource() == buscar) {
 			buscar();
 		}
-		if (e.getSource() == update) {
+		if(e.getSource() == alterar) {
 			alterar();
 		}
-		if (e.getSource() == delete) {
+		if(e.getSource() == excluir) {
 			excluir();
 		}
 	}
 	
-	
-	public static void main(String[] agrs) throws ParseException {
-		OrcamentoProcess.abrir();
-		OrcamentoForm tela = new OrcamentoForm();
-		tela.setVisible(true);
+	private void adicionar() {
+		if(tfId.getText().length() != 0 && tfFornecedor.getText().length() != 0 && tfProduto.getText().length() != 0  && tfPreco.getText().length() != 0) {
+			df.setCurrency(Currency.getInstance(BRASIL));
+			double preco = 0;
+			boolean barato = true;
+			try {
+				preco = Double.parseDouble(df.parse(tfPreco.getText()).toString());
+			}catch(ParseException e) {
+				System.out.println(e);
+			}
+			for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+				if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
+					if(OrcamentoProcess.orcamentos.get(i).getPreco() > preco) {
+						OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
+						barato = true;
+					}else {
+						barato = false;
+					}
+				}
+				
+			}
+			OrcamentoProcess.orcamentos.add(new Orcamento(Integer.parseInt(tfId.getText()), tfFornecedor.getText(), tfProduto.getText(), preco, barato));
+			
+			preencherTabela();
+			limparCampos();
+			OrcamentoProcess.salvar();
+		}
 	}
-}
+	
+	private void excluir() {
+		
+	}
+
+	private void alterar() {
+		
+	}
+
+	private void buscar() {
+		
+	}
 
 	
 
-
+	public static void main(String[] args) {
+		OrcamentoProcess.abrir();
+		new OrcamentoForm().setVisible(true);
+	}
+	
+}
